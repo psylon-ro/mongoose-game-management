@@ -10,7 +10,7 @@ const getGameData=(name)=>{
         // Get information about the book using isbn
         const xhttp = new XMLHttpRequest();
     
-        xhttp.open("GET", `http://localhost:3000/gamelist/${name}`, false);
+        xhttp.open("GET", `/gamelist/${name}`, false);
         xhttp.send();
     
         const game = JSON.parse(xhttp.responseText);
@@ -32,7 +32,7 @@ const setEditModal = (name) => {
     // Get information about the book using isbn
     const xhttp = new XMLHttpRequest();
 
-    xhttp.open("GET", `http://localhost:3000/gamelist/${name}`, false);
+    xhttp.open("GET", `/gamelist/${name}`, false);
     xhttp.send();
 
     const game = JSON.parse(xhttp.responseText);
@@ -57,7 +57,7 @@ const setEditModal = (name) => {
       }
        
          const xhtp = new XMLHttpRequest();
-        xhtp.open("POST", `http://localhost:3000/gamelistsave/${game._id}`);
+        xhtp.open("POST", `/gamelistsave/${game._id}`);
         xhtp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhtp.send(JSON.stringify(achbody));
         location.reload(); 
@@ -70,19 +70,19 @@ const setEditModal = (name) => {
         achbody=['Game master','Speed Demon']
       }
          const xhtp = new XMLHttpRequest();
-        xhtp.open("POST", `http://localhost:3000/gamelistupdate/${game._id}`);
+        xhtp.open("POST", `/gamelistupdate/${game._id}`);
         xhtp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhtp.send(JSON.stringify(achbody)); 
         location.reload();
     })
     // Setting up the action url for the book
-    document.getElementById('editForm').action = `http://localhost:3000/gamelist/${game._id}`;
+    document.getElementById('editForm').action = `/gamelist/${game._id}`;
 }
 
 const deleteBook = (id) => {
     const xhttp = new XMLHttpRequest();
 
-    xhttp.open("DELETE", `http://localhost:3000/gamelist/${id}`, false);
+    xhttp.open("DELETE", `/gamelist/${id}`, false);
     xhttp.send();
 
     // Reloading the page
@@ -92,7 +92,7 @@ const deleteBook = (id) => {
 const loadBooks = () => {
     const xhttp = new XMLHttpRequest();
 
-    xhttp.open("GET", "http://localhost:3000/games", false);
+    xhttp.open("GET", "/games", false);
     xhttp.send();
 
     const books = JSON.parse(xhttp.responseText);
@@ -126,7 +126,7 @@ const loadBooks = () => {
 const loadTopGames = () => {
     const xhttp = new XMLHttpRequest();
 
-    xhttp.open("GET", "http://localhost:3000/topgames", false);
+    xhttp.open("GET", "/topgames", false);
     xhttp.send();
 
     const books = JSON.parse(xhttp.responseText);
@@ -159,7 +159,7 @@ const loadTopGames = () => {
 const loadAchievementGames = () => {
     const xhttp = new XMLHttpRequest();
 
-    xhttp.open("GET", "http://localhost:3000/achievementgames", false);
+    xhttp.open("GET", "/achievementgames", false);
     xhttp.send();
 
     const books = JSON.parse(xhttp.responseText);
