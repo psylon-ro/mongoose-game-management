@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game list</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <br>
+        &nbsp<button class="btn btn-success" onclick="location.href='http://localhost:3000/';">add more games</button>&nbsp;&nbsp;
+        <hr>
+        <div class="form-group">
+            <label for="ISB">Find a game by its name</label>
+            <input class="form-control" name="ISB" id="ISB" placeholder="enter the name of the game">
+            <br>
+            <button  types="button" class="btn btn-warning buttonnn" data-bs-toggle="modal"
+            data-bs-target="#getGameModal">Get game data</button>
+        </div>
+        <hr>
+        <h1>Our top rated games</h1>
+        <div>
+            <div class="row" id="top-games">
+            </div>
+        </div>
+        <hr>
+        <h1>games with achievements</h1>
+        <div>
+            <div class="row" id="achievement-games">
+            </div>
+        </div>
+        <hr>
+        <h1>List of all games</h1>
+        <div>
+            <div class="row" id="books">
+            </div>
+        </div>
+    </div>
+
+    <div id="getGameModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Game Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+    
+                <div class="modal-body">
+
+                
+                       
+                            <label for="Title-data">Title</label>
+                            <p  name="Title-data" id="Title-data"></p>
+                        
+            
+                        
+                            <label for="Genre-data">Genre</label>
+                            <p  name="Genre-data" id="Genre-data"></p>
+                       
+            
+                        
+                            <label for="Rating-data">Rating</label>
+                            <p name="Rating-data" id="Rating-data"></p>
+
+                            <label for="Achievements-data">Achievements</label>
+                            <p name="Achievements-data" id="Achievements-data"></p>
+                        <br>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                     
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="editBookModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Game</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+    
+                <div class="modal-body">
+                    <form id="editForm" method="POST">
+                        <!-- <div class="form-group">
+                            <label for="ISBN">ISBN</label>
+                            <input class="form-control" name="ISBN" id="ISBN">
+                        </div> -->
+                
+                        <div class="form-group">
+                            <label for="Title">Title</label>
+                            <input class="form-control" name="Title" id="Title">
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="Genre">Genre</label>
+                            <input class="form-control" name="Genre" id="Genre">
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="Rating">Rating</label>
+                            <input class="form-control" name="Rating" id="Rating">
+                        </div>
+
+                        
+                        <br>
+                        
+                        <!--Other fields-->
+                        <button type="submit" class="btn btn-primary">Submit above changes</button><br><br>
+                        
+                    </form>
+                    <button class="btn btn-success" id="updatebutton">toggle achievements via update() method</button><br><br>
+                    <button class="btn btn-warning" id="savebutton">toggle achievements via save() method</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Our JS file-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="/js/game-list.js"></script>
+</body>
+</html>
